@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"github.com/cronchiq/mycli/cmd"
+)
 
-func main(){
-	fmt.Println("Hello world")
+func main() {
+	cmd.Execute()
 }
