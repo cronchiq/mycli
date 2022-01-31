@@ -5,6 +5,8 @@ import (
 	_ "github.com/cronchiq/mycli/cmd/ahoj"
 	_ "github.com/cronchiq/mycli/cmd/sum"
 	_ "github.com/cronchiq/mycli/cmd/say"
+	_ "github.com/cronchiq/mycli/cmd/say/ahoj"
+	_ "github.com/cronchiq/mycli/cmd/say/hello"
 	"github.com/cronchiq/mycli/cmd/root"	
 	"github.com/spf13/cobra"
 )
