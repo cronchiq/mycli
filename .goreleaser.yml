@@ -1,0 +1,70 @@
+project_name: mycli
+
+before:
+  hooks:
+    - rm -rf ./dist
+    - go mod tidy
+builds:
+  -
+    env:
+      - CGO_ENABLED=0
+    mod_timestamp: "{{ .CommitTimestamp }}"
+    flags:
+      - -trimpath
+    ldflags:
+      - -s
+      - -w
+      - -X github.com/cronchiq/mycli/version.Version=v{{.Version}}
+    goos:
+      - windows
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - "386"
+      - arm
+      - arm64
+    goarm:
+      - 6
+      - 7
+    ignore:
+      - goos: darwin
+        goarch: "386"
+      - goos: windows
+        goarch: "arm"
+      - goos: windows
+        goarch: "arm64"
+      - goos: linux
+        goarch: arm
+        goarm: 6
+    binary: mycli
+
+archives:
+  - format: tar.gz
+    name_template: "{{ .ProjectName }}_v{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+
+release:
+  prerelease: auto
+
+checksum:
+  name_template: "{{ .ProjectName }}_checksums.txt"
+  algorithm: sha256
+
+brews:
+  -
+    name: mycli
+    conflicts:
+      - slu-edge
+    tap:
+      owner: cronchiq
+      name: homebrew-tap
+    skip_upload: auto
+    homepage: https://github.com/cronchiq/mycli
+    url_template: "https://github.com/cronchiq/mycli/releases/download/{{ .Tag }}/{{ .ArtifactName }}"
+    folder: Formula
+    caveats: "How to use this binary: https://github.com/cronchiq/mycli"
+    description: "My CLI demo"
+    install: |
+      bin.install "mycli"
+    test: |
+      system "#{bin}/mycli"
