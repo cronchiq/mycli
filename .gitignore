@@ -1,0 +1,12 @@
+# MAC
+.DS_Store
+
+# Editer
+.vscode
+
+# App
+
+dist/**
+/mycli
+/mycli.exe
+cobra-docs
