@@ -11,7 +11,3 @@ var RootCmd = &cobra.Command{
 	Use:   "mycli",
 	Short: "My CLI, " + version.Version,
 }
-
-func init() {
-
-}

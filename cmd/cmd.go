@@ -1,7 +1,8 @@
 package cmd
 
 import (
-	"github.com/cronchiq/mycli/cmd/root"
+	_ "github.com/cronchiq/mycli/cmd/hello"
+	"github.com/cronchiq/mycli/cmd/root"	
 	"github.com/spf13/cobra"
 )
 
