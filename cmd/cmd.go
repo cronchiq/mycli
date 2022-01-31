@@ -2,6 +2,7 @@ package cmd
 
 import (
 	_ "github.com/cronchiq/mycli/cmd/hello"
+	_ "github.com/cronchiq/mycli/cmd/ahoj"
 	"github.com/cronchiq/mycli/cmd/root"	
 	"github.com/spf13/cobra"
 )
