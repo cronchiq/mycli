@@ -1,5 +1,8 @@
 project_name: mycli
 
+env_files:
+  github_token: ~/mycli/.github_token
+
 before:
   hooks:
     - rm -rf ./dist

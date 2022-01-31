@@ -10,3 +10,4 @@ dist/**
 /mycli
 /mycli.exe
 cobra-docs
+.github_token
