@@ -11,6 +11,9 @@ import (
 
 	// _ "github.com/cronchiq/mycli/cmd/ahoj"
 	_ "github.com/cronchiq/mycli/cmd/k8s"
+	_ "github.com/cronchiq/mycli/cmd/k8s/namespace"
+	_ "github.com/cronchiq/mycli/cmd/k8s/nodes"
+	_ "github.com/cronchiq/mycli/cmd/k8s/pods"
 	"github.com/cronchiq/mycli/cmd/root"
 	_ "github.com/cronchiq/mycli/cmd/say"
 	_ "github.com/cronchiq/mycli/cmd/say/ahoj"
