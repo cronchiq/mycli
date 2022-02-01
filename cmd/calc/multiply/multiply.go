@@ -1,4 +1,4 @@
-package sum
+package multiply
 
 import (
 	"fmt"
@@ -13,11 +13,12 @@ var CmdFlagA int
 var CmdFlagB int
 
 var Cmd = &cobra.Command{
-	Use:   "sum",
-	Short: "Sum of 2 numbers",
+	Use:   "multiply",
+	Short: "Multiply of 2 numbers",	
+	Aliases: []string{"mul"},
 	Args:  cobra.NoArgs,
 	Run: func(c *cobra.Command, args []string) {
-		fmt.Printf("Sum: %d + %d = %d \n", CmdFlagA, CmdFlagB, CmdFlagA + CmdFlagB)
+		fmt.Printf("Multiply: %d * %d = %d \n", CmdFlagA, CmdFlagB, CmdFlagA * CmdFlagB)
 	},
 }
 

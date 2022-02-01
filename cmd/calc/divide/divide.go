@@ -1,4 +1,4 @@
-package sum
+package divide
 
 import (
 	"fmt"
@@ -13,11 +13,17 @@ var CmdFlagA int
 var CmdFlagB int
 
 var Cmd = &cobra.Command{
-	Use:   "sum",
-	Short: "Sum of 2 numbers",
+	Use:   "divide",
+	Short: "Divide of 2 numbers",	
+	Aliases: []string{"dev"},
 	Args:  cobra.NoArgs,
 	Run: func(c *cobra.Command, args []string) {
-		fmt.Printf("Sum: %d + %d = %d \n", CmdFlagA, CmdFlagB, CmdFlagA + CmdFlagB)
+		if CmdFlagB != 0 {
+			fmt.Printf("Divide: %d * %d = %d \n", CmdFlagA, CmdFlagB, CmdFlagA / CmdFlagB)
+			
+		} else {
+			fmt.Println("Mustn't divide by zero")
+		}
 	},
 }
 

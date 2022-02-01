@@ -17,7 +17,7 @@ var Cmd = &cobra.Command{
 	Short: "Difference of 2 numbers",
 	Args:  cobra.NoArgs,
 	Run: func(c *cobra.Command, args []string) {
-		fmt.Printf("Diff %d - %d = %d \n", CmdFlagA, CmdFlagB, CmdFlagA - CmdFlagB)
+		fmt.Printf("Diff: %d - %d = %d \n", CmdFlagA, CmdFlagB, CmdFlagA - CmdFlagB)
 	},
 }
 
