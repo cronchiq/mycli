@@ -7,7 +7,7 @@ import (
 	"github.com/cronchiq/mycli/cmd/root"
 	"github.com/spf13/cobra"
 
-	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
 )
@@ -19,6 +19,7 @@ func KubernetesClient() (*kubernetes.Clientset, string, error) {
 	)
 	namespace, _, _ := kubeConfig.Namespace()
 	restconfig, _ := kubeConfig.ClientConfig()
+
 	clientset, _ := kubernetes.NewForConfig(restconfig)
 	return clientset, namespace, nil
 }
@@ -30,13 +31,16 @@ var Cmd = &cobra.Command{
 	Run: func(c *cobra.Command, args []string) {
 		clientset, namespace, _ := KubernetesClient()
 
+		// Namespace
 		fmt.Println("Namespace: " + namespace)
 
+		// Nodes
 		fmt.Println("Nodes:")
 		nodeClient := clientset.CoreV1().Nodes()
-		nodes, _ := nodeClient.List(context.TODO(), v1.ListOptions{})
+		nodes, _ := nodeClient.List(context.TODO(), metav1.ListOptions{})
 		for _, node := range nodes.Items {
-			fmt.Println(node)
+			fmt.Println(node.ObjectMeta.Name, node.Status.Addresses[0].Address)
+
 		}
 
 	},
