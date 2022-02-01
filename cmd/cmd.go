@@ -6,6 +6,7 @@ import (
 	_ "github.com/cronchiq/mycli/cmd/calc/divide"
 	_ "github.com/cronchiq/mycli/cmd/calc/multiply"
 	_ "github.com/cronchiq/mycli/cmd/calc/sum"
+	_ "github.com/cronchiq/mycli/cmd/gen_docs"
 	_ "github.com/cronchiq/mycli/cmd/hello"
 
 	// _ "github.com/cronchiq/mycli/cmd/ahoj"
