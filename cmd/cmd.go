@@ -10,6 +10,7 @@ import (
 	_ "github.com/cronchiq/mycli/cmd/say"
 	_ "github.com/cronchiq/mycli/cmd/say/ahoj"
 	_ "github.com/cronchiq/mycli/cmd/say/hello"
+	_ "github.com/cronchiq/mycli/cmd/version"
 	"github.com/cronchiq/mycli/cmd/root"	
 	"github.com/spf13/cobra"
 )
